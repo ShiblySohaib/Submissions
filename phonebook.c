@@ -16,7 +16,7 @@ void back();
 void start();
 void addRecord();
 void deleteRecord();
-void searchRecord(char name[]);
+int searchRecord(char name[]);
 void listRecord();
 void modifyRecord();
 void getInfo(struct node *ptr);
@@ -203,7 +203,7 @@ void getInfo(struct node *ptr)
 	count++;
 }
 
-void searchRecord(char name[])
+int searchRecord(char name[])
 {
 	struct node *current = head;
 	while (current != NULL)
@@ -214,9 +214,10 @@ void searchRecord(char name[])
 			printf("Phone   : %s\n", current->phone);
 			printf("Email   : %s\n", current->email);
 			printf("Address : %s\n", current->address);
-			return;
+			return 1;
 		}
 		current = current->next;
 	}
 	printf("Contact not found\n");
+	return 0;
 }
