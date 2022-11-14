@@ -69,28 +69,23 @@ void menu()
       {
 
       case 1: //----------------------------------------add contact---------------------------------------------------
-            printf("one\n");
             addRecord();
             break;
 
       case 2: //----------------------------------------delete contact------------------------------------------------
-            printf("two\n");
             deleteRecord();
             break;
 
       case 3: //----------------------------------------search contact------------------------------------------------
-            printf("three\n");
             searchRecord();
 
             break;
 
       case 4: //----------------------------------------edit contact------------------------------------------------
-
-            printf("four\b");
+            modifyRecord();
             break;
 
       case 5: //----------------------------------------show all contacts------------------------------------------------
-            printf("five\n");
             listRecord();
             break;
 
@@ -365,6 +360,92 @@ void deleteRecord()
       getchar();
       if (option == 1)
             deleteRecord();
+      else
+            back();
+}
+
+/////////////////////////////////////        modify record      //////////////////////////////////////
+void modifyRecord()
+{
+      system("cls");
+      int option;
+      char name[50];
+      struct node *contact;
+      printf("Enter contact name to edit: ");
+      gets(name);
+      if (search(name))
+      {
+            printf("\n\n");
+            printf("                                                  ========================\n");
+            printf("                                                        Contact found \n");
+            printf("                                                  ========================\n");
+            contact = search(name);
+            displayContact(contact);
+            int edit;
+            printf("\nChoose what to edit\n");
+            printf("\n1. Edit name\n");
+            printf("\n2. Edit phone\n");
+            printf("\n3. Edit email\n");
+            printf("\n4. Edit address\n\n");
+            printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+            scanf("%d", &edit);
+            getchar();
+            if (edit == 1)
+            {
+                  printf("Enter name    : ");
+                  gets(contact->name);
+                  printf("\n\n");
+                  printf("                                                  ========================\n");
+                  printf("                                                       Contact updated \n");
+                  printf("                                                  ========================\n");
+            }
+            else if (edit == 2)
+            {
+                  printf("Enter phone   : ");
+                  gets(contact->phone);
+                  printf("\n\n");
+                  printf("                                                  ========================\n");
+                  printf("                                                       Contact updated \n");
+                  printf("                                                  ========================\n");
+            }
+            else if (edit == 3)
+            {
+                  printf("Enter email   : ");
+                  gets(contact->email);
+                  printf("\n\n");
+                  printf("                                                  ========================\n");
+                  printf("                                                       Contact updated \n");
+                  printf("                                                  ========================\n");
+            }
+            else if (edit == 4)
+            {
+                  printf("Enter address : ");
+                  gets(contact->address);
+                  printf("\n\n");
+                  printf("                                                  ========================\n");
+                  printf("                                                       Contact updated \n");
+                  printf("                                                  ========================\n");
+            }
+            else
+            {
+                  back();
+            }
+      }
+      else
+      {
+            printf("\n\n");
+            printf("                                                  ========================\n");
+            printf("                                                      Contact not found\n");
+            printf("                                                  ========================\n");
+      }
+      printf("\n\n");
+      printf("Enter option: \n\n");
+      printf("\xdb\xdb 1. Edit another contact\n\n");
+      printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+      scanf("%d", &option);
+      getchar();
+      if (option == 1)
+            modifyRecord();
       else
             back();
 }
