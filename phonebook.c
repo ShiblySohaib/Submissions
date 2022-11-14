@@ -16,7 +16,7 @@ void back();
 void start();
 void addRecord();
 void deleteRecord();
-void searchRecord();
+void searchRecord(char name[]);
 void listRecord();
 void modifyRecord();
 void getInfo(struct node *ptr);
@@ -62,6 +62,7 @@ void menu()
 	printf("\xdb\xdb 5. Show all contacts\n\n");
 	printf("\n\n========================================= [Enter any ohter key to exit] =========================================\n");
 	scanf("%d", &option);
+	getchar();
 	switch (option)
 	{
 
@@ -75,8 +76,10 @@ void menu()
 		break;
 
 	case 3: //----------------------------------------search contact------------------------------------------------
-
-		printf("three");
+		char name[50];
+		printf("Enter contact name to search: ");
+		gets(name);
+		searchRecord(name);
 		break;
 
 	case 4: //----------------------------------------edit contact------------------------------------------------
@@ -125,6 +128,7 @@ void addRecord()
 		printf("\xdb\xdb 1. Add another contact\n\n");
 		printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
 		scanf("%d", &option);
+		getchar();
 		if (option == 1)
 			addRecord();
 		else
@@ -145,6 +149,7 @@ void addRecord()
 		printf("\xdb\xdb 1. Add another contact\n\n");
 		printf("\n\n========================================= [Enter any ohter key to go back] =========================================\n");
 		scanf("%d", &option);
+		getchar();
 		if (option == 1)
 			addRecord();
 		else
@@ -174,10 +179,10 @@ void listRecord()
 		struct node *current = head;
 		while (current != NULL)
 		{
-			printf("%s\n", current->name);
-			printf("%s\n", current->phone);
-			printf("%s\n", current->email);
-			printf("%s\n", current->address);
+			printf("Name    : %s\n", current->name);
+			printf("Phone   : %s\n", current->phone);
+			printf("Email   : %s\n", current->email);
+			printf("Address : %s\n", current->address);
 			printf("\n========================================================================================================================\n\n");
 			current = current->next;
 		}
@@ -187,20 +192,8 @@ void listRecord()
 void getInfo(struct node *ptr)
 {
 	struct node *current = head;
-	getchar();
 	printf("Enter name: ");
 	gets(ptr->name);
-	while (current->next!= NULL)
-	{
-		if (!strcmp(ptr->name, current->name))
-		{
-			printf("already exists\n");
-			printf("Enter name: ");
-			gets(ptr->name);
-			current=head;
-		}
-		current = current->next;
-	}
 	printf("Enter phone: ");
 	gets(ptr->phone);
 	printf("Enter email: ");
@@ -208,4 +201,22 @@ void getInfo(struct node *ptr)
 	printf("Enter address: ");
 	gets(ptr->address);
 	count++;
+}
+
+void searchRecord(char name[])
+{
+	struct node *current = head;
+	while (current != NULL)
+	{
+		if (strcmp(name, current->name) == 0)
+		{
+			printf("Name    : %s\n", current->name);
+			printf("Phone   : %s\n", current->phone);
+			printf("Email   : %s\n", current->email);
+			printf("Address : %s\n", current->address);
+			return;
+		}
+		current = current->next;
+	}
+	printf("Contact not found\n");
 }
