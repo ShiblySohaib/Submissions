@@ -139,7 +139,7 @@ void addRecord()
             printf("\n\n");
             printf("Enter option: \n\n");
             printf("\xdb\xdb 1. Add another contact\n\n");
-            printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+            printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
             scanf("%d", &option);
             getchar();
             if (option == 1)
@@ -163,7 +163,7 @@ void addRecord()
             printf("\n\n");
             printf("Enter option: \n\n");
             printf("\xdb\xdb 1. Add another contact\n\n");
-            printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+            printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
             scanf("%d", &option);
             getchar();
             if (option == 1)
@@ -206,7 +206,7 @@ void listRecord()
                   current = current->next;
             }
       }
-      printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+      printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
       scanf("%d", &option);
       getchar();
       back();
@@ -280,7 +280,7 @@ void searchRecord()
       printf("\n\n");
       printf("Enter option: \n\n");
       printf("\xdb\xdb 1. Search for another contact\n\n");
-      printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+      printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
       scanf("%d", &option);
       getchar();
       if (option == 1)
@@ -368,7 +368,7 @@ void deleteRecord()
       printf("\n\n");
       printf("Enter option: \n\n");
       printf("\xdb\xdb 1. Delete another contact\n\n");
-      printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+      printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
       scanf("%d", &option);
       getchar();
       if (option == 1)
@@ -400,7 +400,7 @@ void modifyRecord()
             printf("\n2. Edit phone\n");
             printf("\n3. Edit email\n");
             printf("\n4. Edit address\n\n");
-            printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+            printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
             scanf("%d", &edit);
             getchar();
             if (edit == 1)
@@ -454,7 +454,7 @@ void modifyRecord()
       printf("\n\n");
       printf("Enter option: \n\n");
       printf("\xdb\xdb 1. Edit another contact\n\n");
-      printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+      printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
       scanf("%d", &option);
       getchar();
       if (option == 1)
