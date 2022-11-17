@@ -23,14 +23,19 @@ void modifyRecord();
 void getInfo(struct node *ptr);
 void displayContact(struct node *current);
 
-/////////////////////// global variables ////////////////////////////////////
+//---------------------------------------------  global variables ---------------------------------------------
 
 int count = 0;
 
-//////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------------------
 
 int main()
 {
+      dummy("Iftekhar Likhan","213154243","likhan@gmail.com","Uttara, Dhaka");
+      dummy("Shibly Sohaib","213154258","shibly@gmail.com","Savar, Dhaka");
+      dummy("Abdur Rahman","213154270","hisham@gmail.com","Uttara, Dhaka");
+      dummy("Rayhan Rafin","213154278","rayhan@gmail.com","Mirpur, Dhaka");
+      dummy("Sayone Dey","213154289","sayone@gmail.com","Kalyanpur, Dhaka");
       start();
       return 0;
 }
@@ -118,7 +123,9 @@ void start()
       menu();
 }
 
-///////////////////////////////////////       add record    /////////////////////////////////////////////
+
+
+//---------------------------------------------       1. add record    ---------------------------------------------
 void addRecord()
 {
       system("cls");
@@ -139,7 +146,7 @@ void addRecord()
             printf("\n\n");
             printf("Enter option: \n\n");
             printf("\xdb\xdb 1. Add another contact\n\n");
-            printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+            printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
             scanf("%d", &option);
             getchar();
             if (option == 1)
@@ -163,7 +170,7 @@ void addRecord()
             printf("\n\n");
             printf("Enter option: \n\n");
             printf("\xdb\xdb 1. Add another contact\n\n");
-            printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+            printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
             scanf("%d", &option);
             getchar();
             if (option == 1)
@@ -173,46 +180,10 @@ void addRecord()
       }
 }
 
-///////////////////////////////////////       list record    /////////////////////////////////////////////
 
-void listRecord()
-{
-      system("cls");
-      int option;
-      system("cls");
-      printf("\n\n");
-      printf("                                                  ========================\n");
-      printf("                                                         Contact list \n");
-      printf("                                                  ========================\n");
-      printf("\n\n========================================================================================================================\n\n");
-      if (count == 0)
-      {
-            printf("\n\n");
-            printf("                                                  ========================\n");
-            printf("                                                      No saved contacts \n");
-            printf("                                                  ========================\n");
-      }
-      else
-      {
 
-            struct node *current = head;
-            while (current != NULL)
-            {
-                  printf("Name    : %s\n", current->name);
-                  printf("Phone   : %s\n", current->phone);
-                  printf("Email   : %s\n", current->email);
-                  printf("Address : %s\n", current->address);
-                  printf("\n\n========================================================================================================================\n");
-                  current = current->next;
-            }
-      }
-      printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
-      scanf("%d", &option);
-      getchar();
-      back();
-}
 
-///////////////////////////////////////   get info  ////////////////////////////////////////////////
+//---------------------------------------------   get info  ---------------------------------------------
 
 void getInfo(struct node *ptr)
 {
@@ -237,92 +208,14 @@ void getInfo(struct node *ptr)
       count++;
 }
 
-//////////////////////////////////		search	/////////////////////////////////////////////
-struct node *search(char name[])
-{
-      struct node *current = head;
-      while (current != NULL)
-      {
-            if (strcmp(name, current->name) == 0)
-            {
-                  return current;
-            }
-            current = current->next;
-      }
-      return 0;
-}
 
-//////////////////////////////////		search record		/////////////////////////////////////////////
-void searchRecord()
-{
-      system("cls");
-      int option;
-      char name[50];
-      struct node *contact;
-      printf("Enter contact name to search: ");
-      gets(name);
-      if (search(name))
-      {
-            printf("\n\n");
-            printf("                                                  ========================\n");
-            printf("                                                        Contact found \n");
-            printf("                                                  ========================\n");
-            contact = search(name);
-            displayContact(contact);
-      }
-      else
-      {
-            printf("\n\n");
-            printf("                                                  ========================\n");
-            printf("                                                      Contact not found\n");
-            printf("                                                  ========================\n");
-      }
-      printf("\n\n");
-      printf("Enter option: \n\n");
-      printf("\xdb\xdb 1. Search for another contact\n\n");
-      printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
-      scanf("%d", &option);
-      getchar();
-      if (option == 1)
-            searchRecord();
-      else
-            back();
-}
 
-////////////////////////////////////		display contact		///////////////////////////////////////////////////
-void displayContact(struct node *current)
-{
-      printf("Name    : %s\n", current->name);
-      printf("Phone   : %s\n", current->phone);
-      printf("Email   : %s\n", current->email);
-      printf("Address : %s\n", current->address);
-      printf("\n\n");
-}
 
-/////////////////////////////////////// 		delete 			////////////////////////////////////////////////////
-void delete (struct node *contact)
-{
-      struct node *current;
-      if (contact == head)
-      {
-            head = head->next;
-            free(contact);
-            count--;
-      }
-      else
-      {
-            current = head;
-            while (current->next != contact)
-            {
-                  current = current->next;
-            }
-            current->next = contact->next;
-            free(contact);
-            count--;
-      }
-}
 
-////////////////////////////////////        delete contact      /////////////////////////////////////////////////////
+
+
+
+//---------------------------------------------        2. delete contact      ---------------------------------------------
 void deleteRecord()
 {
       system("cls");
@@ -368,7 +261,7 @@ void deleteRecord()
       printf("\n\n");
       printf("Enter option: \n\n");
       printf("\xdb\xdb 1. Delete another contact\n\n");
-      printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+      printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
       scanf("%d", &option);
       getchar();
       if (option == 1)
@@ -377,7 +270,116 @@ void deleteRecord()
             back();
 }
 
-/////////////////////////////////////        modify record      //////////////////////////////////////
+
+
+
+
+
+
+//---------------------------------------------		delete	---------------------------------------------
+void delete (struct node *contact)
+{
+      struct node *current;
+      if (contact == head)
+      {
+            head = head->next;
+            free(contact);
+            count--;
+      }
+      else
+      {
+            current = head;
+            while (current->next != contact)
+            {
+                  current = current->next;
+            }
+            current->next = contact->next;
+            free(contact);
+            count--;
+      }
+}
+
+
+
+
+
+
+
+
+
+//---------------------------------------------		3. search record		---------------------------------------------
+void searchRecord()
+{
+      system("cls");
+      int option;
+      char name[50];
+      struct node *contact;
+      printf("Enter contact name to search: ");
+      gets(name);
+      if (search(name))
+      {
+            printf("\n\n");
+            printf("                                                  ========================\n");
+            printf("                                                        Contact found \n");
+            printf("                                                  ========================\n");
+            contact = search(name);
+            displayContact(contact);
+      }
+      else
+      {
+            printf("\n\n");
+            printf("                                                  ========================\n");
+            printf("                                                      Contact not found\n");
+            printf("                                                  ========================\n");
+      }
+      printf("\n\n");
+      printf("Enter option: \n\n");
+      printf("\xdb\xdb 1. Search for another contact\n\n");
+      printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
+      scanf("%d", &option);
+      getchar();
+      if (option == 1)
+            searchRecord();
+      else
+            back();
+}
+
+
+
+
+//--------------------------------------------- 	search	---------------------------------------------
+struct node *search(char name[])
+{
+      struct node *current = head;
+      while (current != NULL)
+      {
+            if (strcmp(name, current->name) == 0)
+            {
+                  return current;
+            }
+            current = current->next;
+      }
+      return 0;
+}
+
+
+
+
+
+
+
+//---------------------------------------------		display contact		---------------------------------------------
+void displayContact(struct node *current)
+{
+      printf("Name    : %s\n", current->name);
+      printf("Phone   : %s\n", current->phone);
+      printf("Email   : %s\n", current->email);
+      printf("Address : %s\n", current->address);
+      printf("\n\n");
+}
+
+
+//---------------------------------------------       4. modify record      ---------------------------------------------
 void modifyRecord()
 {
       system("cls");
@@ -400,7 +402,7 @@ void modifyRecord()
             printf("\n2. Edit phone\n");
             printf("\n3. Edit email\n");
             printf("\n4. Edit address\n\n");
-            printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+            printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
             scanf("%d", &edit);
             getchar();
             if (edit == 1)
@@ -454,11 +456,106 @@ void modifyRecord()
       printf("\n\n");
       printf("Enter option: \n\n");
       printf("\xdb\xdb 1. Edit another contact\n\n");
-      printf("\n\n========================================= [Enter any other key to go back] =========================================\n");
+      printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
       scanf("%d", &option);
       getchar();
       if (option == 1)
             modifyRecord();
       else
             back();
+}
+
+
+
+
+
+
+
+
+//---------------------------------------------      5. list record   ---------------------------------------------
+
+void listRecord()
+{
+      system("cls");
+      int option;
+      system("cls");
+      printf("\n\n");
+      printf("                                                  ========================\n");
+      printf("                                                         Contact list \n");
+      printf("                                                  ========================\n");
+      printf("\n\n========================================================================================================================\n");
+      if (count == 0)
+      {
+            printf("\n\n");
+            printf("                                                  ========================\n");
+            printf("                                                      No saved contacts \n");
+            printf("                                                  ========================\n");
+      }
+      else
+      {
+
+            struct node *current = head;
+            while (current != NULL)
+            {
+                  printf("\n");
+                  printf("Name    : %s\n", current->name);
+                  printf("Phone   : %s\n", current->phone);
+                  printf("Email   : %s\n", current->email);
+                  printf("Address : %s\n", current->address);
+                  printf("\n========================================================================================================================\n");
+                  current = current->next;
+            }
+      }
+      printf("\n\n=========================================== [Enter any other key to go back] ===========================================\n");
+      scanf("%d", &option);
+      getchar();
+      back();
+}
+
+
+
+
+
+
+
+
+
+
+//--------------------------------------------- dummy data ---------------------------------------------
+void dummy(char name[], char phone[], char email[], char address[])
+{
+      struct node *current;
+      if (count == 0)
+      {
+            head = (struct node *)malloc(sizeof(struct node));
+
+            if (head == NULL)
+                  printf("Not enough memory\n");
+            else
+            {
+                  strcpy(head->name, name);
+                  strcpy(head->phone, phone);
+                  strcpy(head->email, email);
+                  strcpy(head->address, address);
+                  head->next = NULL;
+                  count++;
+            }
+      }
+      else
+      {
+            struct node *newnode;
+            current = head;
+            while (current->next != NULL)
+            {
+                  current = current->next;
+            }
+            newnode = (struct node *)malloc(sizeof(struct node));
+            strcpy(newnode->name, name);
+            strcpy(newnode->phone, phone);
+            strcpy(newnode->email, email);
+            strcpy(newnode->address, address);
+            newnode->next = NULL;
+            current->next = newnode;
+            count++;
+      }
 }
