@@ -1,0 +1,33 @@
+[
+  {
+    "title": "The computer was born to solve problems that did not exist before.",
+    "img": "img/news/small_dp.jpg",
+    "category": "Guru Vamsi Policharla",
+    "date": { "date": "1989", "month": "Dec" },
+    "details": [
+      "I'm a computer science PhD student at Berkeley, where I am advised by Sanjam Garg.",
+      "Previously, I graduated from IIT Bombay with a Bachelor's + Master's in Engineering Physics.",
+      "I worked as a research intern at Cloudflare, I worked on post-quantum solutions for Privacy-Pass and more generally, Post-quantum Anonymous Credentials."
+    ]
+  },
+  {
+    "title": "Appreciate your hardwork and strive for better",
+    "img": "img/news/headshot_5.jpeg",
+    "category": "Bhaskar Roberts",
+    "date": { "date": "1992", "month": "Feb" },
+    "details": [
+      "Hi and welcome! I'm a PhD student in computer science at Berkeley, advised by Sanjam Garg and Umesh Vazirani. I am also supported by an NDSEG fellowship. The focus of my research is designing cryptographic schemes for quantum computers that provide distinctly quantum forms of security.",
+      "As an undergrad at Princeton (class of 2019), I studied electrical engineering with a minor in applied math. Mark Zhandry helped me find my footing in computer science and served as my primary research advisor."
+    ]
+  },
+  {
+    "title": "Computer science empowers students to create the world of tomorrow.",
+    "img": "img/news/profile.jpg",
+    "category": "James Bartusek",
+    "date": { "date": "1991", "month": "Jan" },
+    "details": [
+      "I am a computer science PhD student in the theory group at Berkeley, where I am advised by Sanjam Garg . My research focuses on various aspects of cryptography, including secure computation, program obfuscation, and quantum cryptography.",
+      "Previously, I completed a BSE and MSE at Princeton, where I was advised by Mark Zhandry .."
+    ]
+  }
+]

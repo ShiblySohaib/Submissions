@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Amit Sahai",
+    "img": "img/testimonials/as.jpeg",
+    "profession": "Professor of Computer Science at UCLA",
+    "details": "During our research on 'Cryptography with One-Way Communication' I was surprised to see Sanjam Garg works. His knowledge about crypto was exceptional."
+  },
+  {
+    "name": "Mohammad Hajiabadi",
+    "img": "img/testimonials/mh.jpeg",
+    "profession": "Assistant Professor & Researcher at UC Berkeley",
+    "details": "I work with Sanjam in the project named, 'How to Build a Trapdoor Function from an Encryption Scheme' His Encryption Quality and design were awesome. Sanjam gives an instant solution to our needs. Simply amazing team and amazing project!"
+  },
+  {
+    "name": "Steve Chan",
+    "img": "img/testimonials/sw.jpeg",
+    "profession": "Student of CSE at University of California",
+    "details": "Sanjam Sir is very supportive & intellectual. I am a noob in programming with very little knowledge about coding & encryption but Sanjam Sir  helped me to launch my first project 'A More Complete Analysis of the Signal Double Ratchet Algorithm' successfully."
+  }
+]
